@@ -1,6 +1,22 @@
 "use strict";
+
+
+const OpenImage = (source) => {
+    let new_image = document.createElement('div');
+    new_image.classList.add('backgrounded_image');
+    new_image.innerHTML = `
+        <span class="remover">&times;</span>
+        <img src="${source}" class="openedImage" />
+    `
+    document.body.appendChild(new_image);
+    document.querySelector('.remover').addEventListener('click', () => {
+        document.body.removeChild(new_image);
+    });
+}
+
+
 const ImageSlider = () => {
-    let images = ['img/home-bg.png', 'img/home-bg-1.jpg', 'img/home-bg-2.jpg'];
+    let images = ['/static/img/home-bg.png', '/static/img/home-bg-1.jpg', '/static/img/home-bg-2.jpg'];
     let imageIndex = 0;
     let header = document.querySelector('header');
     setInterval(() => {
@@ -41,3 +57,31 @@ const initializeCounter = () => {
 };
 
 initializeCounter();
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 768) {
+        removeClass();
+    }
+    else {
+        addClass();
+    }
+});
+
+function addClass() {
+    let elements = document.querySelectorAll('.changed-line');
+    console.log(elements)
+    elements.forEach((elem) => {
+        elem.classList.add('line-trough')
+        elem.classList.remove('p-0')
+    });
+};
+
+function removeClass() {
+    let elements = document.querySelectorAll('.line-trough');
+    console.log(elements)
+    elements.forEach((elem) => {
+        elem.classList.remove('line-trough')
+        elem.classList.add('changed-line')
+        elem.classList.add('p-0')
+    });
+};

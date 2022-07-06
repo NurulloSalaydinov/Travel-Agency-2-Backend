@@ -1,566 +1,558 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sayohat Plus</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/logo.png' %}"
+      type="image/x-icon"
+    />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sayohat Plus</title>
-        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- custom css -->
-        <link rel="stylesheet" href="css/style.css">
+  <body>
+    <header>
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="container-fluid mx-lg-5">
+          <a class="navbar-brand fs-4" href="#">
+            <img src="{% static 'img/logo.png' %}" alt="" />
+            Sayohat<span class="text-red">plus</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigatsion"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    </head>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNavAltMarkup"
+          >
+            <ul class="navbar-nav fs-5">
+              <li class="nav-item">
+                <a class="nav-link" href="#cities">Turlar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">Biz haqimizda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#gallery">Galereya</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Biz bilan aloqa</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- end navbar -->
+      <!-- banner content -->
+      <div class="container">
+        <div class="banner-content">
+          <h1>
+            <span class="text-red"> Dunyoni </span>
+            <br />
+            Qulaylikda Kashf eting
+          </h1>
+          <p class="mt-3">
+            Biz sizga qulay va maroqli bolgan sayohat turini taklif qilamiz.
+            <br />
+            Bizda siz uchun maxsus takliflar va yordam berish servislari mavjud.
+            Biz bilan Sayohat qiling !
+          </p>
+        </div>
+      </div>
+      <!-- end banner content -->
+    </header>
 
-    <body>
+    <section id="cities" class="py-5">
+      <!-- container -->
+      <div class="container py-5">
+        <h3 class="text-red line-trough">Turlar</h3>
+        <p class="mt-3">
+          O'zingiz yoqtirgan shaxringizni tanlang va Sayohat qiling !
+        </p>
 
-        <header>
-            <!-- navbar -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-                <div class="container-fluid mx-lg-5">
-                    <a class="navbar-brand fs-4" href="#">
-                        <img src="img/logo.png" alt="">
-                        Sayohat<span class="text-red">plus</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigatsion">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                        <ul class="navbar-nav fs-5">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Sayohat qidirish</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Biz haqimizda</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Biz bilan aloqa</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </nav>
-            <!-- end navbar -->
-            <!-- banner content -->
-            <div class="container">
-                <div class="banner-content">
-                    <h1>
-                        <span class="text-red">
-                            Dunyoni
-                        </span>
-                        <br>
-                        Qulaylikda Kashf eting
-                    </h1>
-                    <p class="mt-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vestibulum dui. <br>
-                        Donec
-                        eleifend orci a arcu ornare, id aliquam nunc tempor. Suspendisse potenti.
-                    </p>
-                </div>
+        <!-- row -->
+        <div class="row">
+          {% for city in cities %}
+          <!-- col -->
+          <div class="col-md-4 p-3">
+            <div class="card border-0">
+              <div class="img-with-cost">
+                <img src="{{ city.img.url }}" class="img-fluid" alt="" />
+                <div class="cost" data-cost="{{ city.cost }}"></div>
+              </div>
+              <div class="card-body py-3">
+                <p class="fw-bold">{{ city.title }}</p>
+                <p>{{ city.description }}</p>
+                <a href="#contact" class="text-red text-decoration-none">
+                  Sayohatingizni boshlang &RightArrow;
+                </a>
+              </div>
             </div>
-            <!-- end banner content -->
-        </header>
-
-        <section id="popular-cities" class="py-5">
-            <!-- container -->
-            <div class="container py-5">
-
-                <h3 class="text-red line-trough">MASHXUR SHAXARLAR</h3>
-                <p class="mt-3 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vestibulum dui. <br> Donec
-                    eleifend orci a arcu ornare, id aliquam nunc tempor. Suspendisse potenti.
-                </p>
-
-                <!-- row -->
-                <div class="row">
-                    <!-- col -->
-                    <div class="col-md-4 p-3">
-                        <div class="card border-0">
-                            <div class="img-with-cost">
-                                <img src="img/city-1.png" class="img-fluid" alt="">
-                                <div class="cost" data-cost="$1500"></div>
-                            </div>
-                            <div class="card-body py-3">
-                                <p class="fw-bold ">Mount Agung, Bali - Indonesia</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua minim veniam
-                                </p>
-                                <a href="#" class="text-red text-decoration-none ">
-                                    Sayohatingizni boshlang &RightArrow;
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                    <!-- col -->
-                    <div class="col-md-4 p-3">
-                        <div class="card border-0">
-                            <div class="img-with-cost">
-                                <img src="img/city-2.png" class="img-fluid" alt="">
-                                <div class="cost" data-cost="$1500"></div>
-                            </div>
-                            <div class="card-body py-3">
-                                <p class="fw-bold ">Mount Agung, Bali - Indonesia</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua minim veniam
-                                </p>
-                                <a href="#" class="text-red text-decoration-none ">
-                                    Sayohatingizni boshlang &RightArrow;
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                    <!-- col -->
-                    <div class="col-md-4 p-3">
-                        <div class="card border-0">
-                            <div class="img-with-cost">
-                                <img src="img/city-3.png" class="img-fluid" alt="">
-                                <div class="cost" data-cost="$1500"></div>
-                            </div>
-                            <div class="card-body py-3">
-                                <p class="fw-bold ">Mount Agung, Bali - Indonesia</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua minim veniam
-                                </p>
-                                <a href="#" class="text-red text-decoration-none ">
-                                    Sayohatingizni boshlang &RightArrow;
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-            <!-- total result -->
-            <div class="total-result bg-opacity-10 bg-secondary py-5 my-5">
-
-                <div class="container">
-
-                    <!-- row -->
-                    <div class="row">
-
-                        <div class="col-md-4 text-center mb-3">
-                            <h1>
-                                <span class="text-green" data-count="3789">3789</span>+
-                            </h1>
-                            <h3 class=" text-uppercase">
-                                Xursand Sayohatchilar
-                            </h3>
-                        </div>
-
-                        <div class="col-md-4 text-center mb-3">
-                            <h1>
-                                <span class="text-green" data-count="145">145</span>+
-                            </h1>
-                            <h3 class=" text-uppercase">
-                                Sayohat maskanlari
-                            </h3>
-                        </div>
-
-                        <div class="col-md-4 text-center mb-3">
-                            <h1>
-                                <span class="text-green" data-count="119">119</span>+
-                            </h1>
-                            <h3 class=" text-uppercase">
-                                Sayyolar paketi
-                            </h3>
-                        </div>
-
-                    </div>
-                    <!-- end row -->
-
-                </div>
-
-            </div>
-            <!-- end total result -->
-            <!-- about us -->
-            <div class="about py-5">
-
-                <div class="container">
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-
-                            <h4 class="text-red line-trough">
-                                Biz Kimmiz ?
-                            </h4>
-
-                            <h1 class="mt-5 pt-5">
-                                Biz Sayohat <br>
-                                Mutahassislarimiz
-                            </h1>
-
-                            <p class="mt-4">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id auctor augue. Nulla
-                                facilisi. Curabitur gravida ligula a est mollis cursus. Suspendisse commodo massa eu
-                                aliquam egestas. Fusce consequat convallis lorem, ac tincidunt orci. Fusce eleifend
-                                pulvinar nisi a pretium. Donec ipsum tortor, semper ac rutrum eu, aliquam quis metus.
-                                Quisque interdum quis ex rutrum euismod.
-                            </p>
-
-                            <button class="mt-5 btn btn-lg bg-red text-light">Koproq oqish</button>
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <div class="row">
-
-                                <div class="col-md-6">
-
-                                    <div class="ms-5">
-                                        <img src="img/about-us-1.png" width="100%" alt="">
-                                    </div>
-                                    <img src="img/about-us-4.png" width="100%" height="300px" class="mt-4" alt="">
-
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-
-                                    <img src="img/about-us-2.png" width="100%" alt="">
-                                    <div class="me-5">
-                                        <img src="img/about-us-3.png" width="100%" class="mt-4" alt="">
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- end about us -->
-
-            <!-- service -->
-            <div id="service" class="bg-dark text-light">
-                <div class="container py-5">
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-
-                            <h3>Biz sizni eng yaxshi sayohat bilan ta'minlaymiz</h3>
-
-                            <img src="img/service.png" width="100%" alt="">
-
-                        </div>
-
-                        <div class="col-md-6 mt-3 p-3">
-
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <img src="img/icons/bookmark.png" width="50px" alt="">
-                                    <h4 class="mt-3">Sizning fikringiz biz uchun muhim</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores a
-                                        repellendus iste. </p>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <img src="img/icons/price-tag.png" width="50px" alt="">
-                                    <h4 class="mt-3">Yaxshi narx kafolatlangan !</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores a
-                                        repellendus iste. </p>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <img src="img/icons/flight.png" width="50px" alt="">
-                                    <h4 class="mt-3">Yuqori malakali xizmat</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores a
-                                        repellendus iste. </p>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <img src="img/icons/support.png" width="50px" alt="">
-                                    <h4 class="mt-3">24/7 Yordam Berish</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores a
-                                        repellendus iste. </p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- end service -->
-
-            <!-- create journey -->
-
-            <div id="journey" class="container text-center py-5">
-
-                <h1 class="line-trough p-0 text-red">Sayohat albumingizni tayyorlang</h1>
-                <p>Galereyangizda saqlang</p>
-
-                <div class="row my-5">
-
-                    <div class="col-md-4">
-
-                        <img src="img/journey-1.png" width="100%" alt="">
-
-                        <div class="mt-3">
-
-                            <img src="img/about-us-3.png" width="100%" alt="">
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-4">
-
-                        <img src="img/journey-2.png" width="100%" alt="">
-
-                        <div class="mt-3">
-
-                            <img src="img/city-1.png" width="100%" alt="">
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-4">
-
-                        <img src="img/journey-3.png" width="100%" alt="">
-
-                        <div class="mt-3">
-
-                            <img src="img/journey-4.png" width="100%" alt="">
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+          </div>
+          <!-- end col -->
+          {% endfor %}
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+      <!-- total result -->
+      <div class="total-result bg-opacity-10 bg-secondary py-5 my-5">
+        <div class="container">
+          <!-- row -->
+          <div class="row">
+            <div class="col-md-4 text-center mb-3">
+              <h1><span class="text-green" data-count="3789">3789</span>+</h1>
+              <h3 class="text-uppercase">Xursand Sayohatchilar</h3>
             </div>
 
-            <!-- end journey -->
-            <!-- client -->
-            <div id="client" class="py-5 bg-secondary bg-opacity-10">
-                <div class="container">
-                    <h4 class="text-red line-trough">
-                        Mijozlarimiz nima deydi ?
-                    </h4>
-
-                    <h1 class="mt-5 pt-5">
-                        Bizning mijozlarimiz <br>
-                        Biz Uchun muhim
-                    </h1>
-
-                    <!-- row -->
-
-                    <div class="row flex-nowrap scroll-auto">
-                        <!-- quote -->
-                        <div class="same-width">
-
-                            <div class="p-2">
-
-                                <div class="card box p-5 border-0">
-                                    <p class="quote">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id auctor augue.
-                                        Nulla facilisi. Curabitur gravida ligula a est mollis cursus. Suspendisse
-                                        commodo
-                                        massa eu aliquam egestas. Fusce consequat convallis lorem, ac tincidunt orci.
-                                    </p>
-                                    <div class="mt-5">
-                                        <div class="d-flex gap-3">
-                                            <img src="img/user-1.png" alt="">
-                                            <div>
-                                                Kate Anderson
-                                                <br>
-                                                <span class="text-green">Decorator</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <!-- quote -->
-                        <!-- quote -->
-                        <div class="same-width">
-
-                            <div class="p-2">
-
-                                <div class="card box p-5 border-0">
-                                    <p class="quote">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id auctor augue.
-                                        Nulla facilisi. Curabitur gravida ligula a est mollis cursus. Suspendisse
-                                        commodo
-                                        massa eu aliquam egestas. Fusce consequat convallis lorem, ac tincidunt orci.
-                                    </p>
-                                    <div class="mt-5">
-                                        <div class="d-flex gap-3">
-                                            <img src="img/user-2.png" alt="">
-                                            <div>
-                                                Kate Anderson
-                                                <br>
-                                                <span class="text-green">Decorator</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <!-- quote -->
-                        <!-- quote -->
-                        <div class="same-width">
-
-                            <div class="p-2">
-
-                                <div class="card box p-5 border-0">
-                                    <p class="quote">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id auctor augue.
-                                        Nulla facilisi. Curabitur gravida ligula a est mollis cursus. Suspendisse
-                                        commodo
-                                        massa eu aliquam egestas. Fusce consequat convallis lorem, ac tincidunt orci.
-                                    </p>
-                                    <div class="mt-5">
-                                        <div class="d-flex gap-3">
-                                            <img src="img/user-2.png" alt="">
-                                            <div>
-                                                Kate Anderson
-                                                <br>
-                                                <span class="text-green">Decorator</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <!-- quote -->
-                        <!-- quote -->
-                        <div class="same-width">
-
-                            <div class="p-2">
-
-                                <div class="card box p-5 border-0">
-                                    <p class="quote">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id auctor augue.
-                                        Nulla facilisi. Curabitur gravida ligula a est mollis cursus. Suspendisse
-                                        commodo
-                                        massa eu aliquam egestas. Fusce consequat convallis lorem, ac tincidunt orci.
-                                    </p>
-                                    <div class="mt-5">
-                                        <div class="d-flex gap-3">
-                                            <img src="img/user-1.png" alt="">
-                                            <div>
-                                                Kate Anderson
-                                                <br>
-                                                <span class="text-green">Decorator</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <!-- quote -->
-                    </div>
-
-                    <!-- end row -->
-                    <br>
-                    <br>
-                    <br>
-
-                </div>
-            </div>
-            <!-- end client -->
-        </section>
-
-        <footer class="bg-dark text-light">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h1 class="mb-5">
-                            <img src="img/logo.png" alt="">
-                            Sayohat<span class="text-red">plus</span>
-                        </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id auctor augue. Nulla
-                            facilisi. Curabitur gravida ligula a est mollis cursus. Suspendisse commodo massa eu aliquam
-                            egestas. Fusce consequat convallis lorem, ac tincidunt orci.</p>
-                        <div class="social-icons mt-4">
-                            <a href="#">
-                                <img src="img/icons/Facebook.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="img/icons/twitt.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="img/icons/insta.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="img/icons/linkin.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <h1 class="mb-5">
-                            Service
-                        </h1>
-                        <a href="#" class="fs-5 text-light text-decoration-none">Biz Haqimizda</a>
-                        <br>
-                        <br>
-                        <a href="#" class="fs-5 text-light text-decoration-none">Bizning Servislarimiz</a>
-                        <br>
-                        <br>
-                        <a href="#" class="fs-5 text-light text-decoration-none">Bizning Mijozlarimiz</a>
-                        <br>
-                        <br>
-                        <a href="#" class="fs-5 text-light text-decoration-none">Biz Bilan Aloqa</a>
-                        <br>
-                    </div>
-                    <div class="col-md-4">
-                        <h1 class="mb-5">
-                            Contact
-                        </h1>
-                        <p class="fs-5 mb-5">
-                            <img src="img/icons/location.svg" width="30px" alt="">
-                            Flat 20, Housing State, Syhlet
-                        </p>
-                        <p class="fs-5 mb-5">
-                            <img src="img/icons/phone.svg" width="30px" alt="">
-                            +998 90 255 05 15
-                        </p>
-                        <p class="fs-5 mb-5">
-                            <img src="img/icons/email.svg" width="30px" alt="">
-                            sayohatplus@gmail.com
-                        </p>
-                    </div>
-                </div>
+            <div class="col-md-4 text-center mb-3">
+              <h1><span class="text-green" data-count="145">145</span>+</h1>
+              <h3 class="text-uppercase">Sayohat maskanlari</h3>
             </div>
 
-        </footer>
+            <div class="col-md-4 text-center mb-3">
+              <h1><span class="text-green" data-count="119">119</span>+</h1>
+              <h3 class="text-uppercase">Sayyolar paketi</h3>
+            </div>
+          </div>
+          <!-- end row -->
+        </div>
+      </div>
+      <!-- end total result -->
+      <!-- about us -->
+      <div class="about py-5" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="text-red line-trough">Biz Kimmiz ?</h4>
 
+              <h1 class="mt-5 pt-5">Biz Sayohatchilarmiz</h1>
 
+              <p class="mt-4">
+                Andijon shahrida o’z faoliyatini boshlagan turistik agentligimiz
+                sizlarga Umra Safariga chiqishga, Buxoro va Samarqand
+                shahrilarini ziyorat qilishga, Chet elga Sayohat qilishga
+                ko’maklashadi!
+              </p>
 
+              <button class="mt-5 btn btn-lg bg-red text-light">
+                Koproq oqish
+              </button>
+            </div>
 
-        <!-- bootstrap bundle -->
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <!-- custom js -->
-        <script src="js/main.js"></script>
-    </body>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="ms-5">
+                    <img
+                      src="{% static 'img/about-us-1.png' %}"
+                      width="100%"
+                      alt=""
+                    />
+                  </div>
+                  <img
+                    src="{% static 'img/about-us-4.png' %}"
+                    width="100%"
+                    height="300px"
+                    class="mt-4"
+                    alt=""
+                  />
+                </div>
 
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="{% static 'img/about-us-2.png' %}"
+                    width="100%"
+                    alt=""
+                  />
+                  <div class="me-5">
+                    <img
+                      src="{% static 'img/about-us-3.png' %}"
+                      width="100%"
+                      class="mt-4"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end about us -->
+
+      <!-- service -->
+      <div id="service" class="bg-dark text-light">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Biz sizni eng yaxshi sayohat bilan ta'minlaymiz</h3>
+
+              <img
+                class="mt-3"
+                src="{% static 'img/service.png' %}"
+                width="100%"
+                height="320px"
+                alt=""
+              />
+            </div>
+
+            <div class="col-md-6 mt-3 p-3">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="{% static 'img/icons/bookmark.png' %}"
+                    width="50px"
+                    alt=""
+                  />
+                  <h4 class="mt-3">Sizning fikringiz biz uchun muhim</h4>
+                  <p>Biz har bir mijozimiz talablariga binoan ish tutamiz !</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="{% static 'img/icons/price-tag.png' %}"
+                    width="50px"
+                    alt=""
+                  />
+                  <h4 class="mt-3">Yaxshi narx kafolatlangan !</h4>
+                  <p>Sayohat qilish endi biz bilan maroqli va qulay narxda</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="{% static 'img/icons/flight.png' %}"
+                    width="50px"
+                    alt=""
+                  />
+                  <h4 class="mt-3">Yuqori malakali xizmat</h4>
+                  <p>Biz sizga havsizlikni va qulaylikni taklif qilamiz</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="{% static 'img/icons/support.png' %}"
+                    width="50px"
+                    alt=""
+                  />
+                  <h4 class="mt-3">24/7 Yordam Berish</h4>
+                  <p>Biz sizga yordam berishga doim tayyormiz ?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end service -->
+
+      <!-- create journey -->
+
+      <div id="gallery" class="container text-center py-5">
+        <h1 class="line-trough p-0 text-red">
+          Sayohat albumingizni tayyorlang
+        </h1>
+        <p>Galereyangizda saqlang</p>
+
+        <div class="row my-5 gallery-images">
+          {% for gallery in galleries %}
+
+          <div class="col-md-4 mb-3">
+            <img
+              src="{{ gallery.img.url }}"
+              onclick="OpenImage(this.src)"
+              width="100%"
+              alt=""
+            />
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- end journey -->
+      <!-- client -->
+      <div id="client" class="py-5 bg-secondary bg-opacity-10">
+        <div class="container">
+          <h4 class="text-red line-trough">Mijozlarimiz nima deydi ?</h4>
+
+          <h1 class="mt-5 pt-5">
+            Bizning mijozlarimiz <br />
+            Biz Uchun muhim
+          </h1>
+
+          <!-- row -->
+
+          <div class="row flex-nowrap scroll-auto">
+            <!-- quote -->
+            <div class="same-width">
+              <div class="p-2">
+                <div class="card box p-5 border-0">
+                  <p class="quote">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi id auctor augue. Nulla facilisi. Curabitur gravida
+                    ligula a est mollis cursus. Suspendisse commodo massa eu
+                    aliquam egestas. Fusce consequat convallis lorem, ac
+                    tincidunt orci.
+                  </p>
+                  <div class="mt-5">
+                    <div class="d-flex gap-3">
+                      <img src="{% static 'img/user-1.png' %}" alt="" />
+                      <div>
+                        Kate Anderson
+                        <br />
+                        <span class="text-green">Decorator</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- quote -->
+            <!-- quote -->
+            <div class="same-width">
+              <div class="p-2">
+                <div class="card box p-5 border-0">
+                  <p class="quote">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi id auctor augue. Nulla facilisi. Curabitur gravida
+                    ligula a est mollis cursus. Suspendisse commodo massa eu
+                    aliquam egestas. Fusce consequat convallis lorem, ac
+                    tincidunt orci.
+                  </p>
+                  <div class="mt-5">
+                    <div class="d-flex gap-3">
+                      <img src="{% static 'img/user-2.png' %}" alt="" />
+                      <div>
+                        Kate Anderson
+                        <br />
+                        <span class="text-green">Decorator</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- quote -->
+            <!-- quote -->
+            <div class="same-width">
+              <div class="p-2">
+                <div class="card box p-5 border-0">
+                  <p class="quote">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi id auctor augue. Nulla facilisi. Curabitur gravida
+                    ligula a est mollis cursus. Suspendisse commodo massa eu
+                    aliquam egestas. Fusce consequat convallis lorem, ac
+                    tincidunt orci.
+                  </p>
+                  <div class="mt-5">
+                    <div class="d-flex gap-3">
+                      <img src="{% static 'img/user-2.png' %}" alt="" />
+                      <div>
+                        Kate Anderson
+                        <br />
+                        <span class="text-green">Decorator</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- quote -->
+            <!-- quote -->
+            <div class="same-width">
+              <div class="p-2">
+                <div class="card box p-5 border-0">
+                  <p class="quote">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi id auctor augue. Nulla facilisi. Curabitur gravida
+                    ligula a est mollis cursus. Suspendisse commodo massa eu
+                    aliquam egestas. Fusce consequat convallis lorem, ac
+                    tincidunt orci.
+                  </p>
+                  <div class="mt-5">
+                    <div class="d-flex gap-3">
+                      <img src="{% static 'img/user-1.png' %}" alt="" />
+                      <div>
+                        Kate Anderson
+                        <br />
+                        <span class="text-green">Decorator</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- quote -->
+          </div>
+
+          <!-- end row -->
+          <br />
+          <br />
+          <br />
+        </div>
+      </div>
+      <!-- end client -->
+      <!-- contact -->
+      <div id="contact">
+        <div class="container">
+          <form class="bg-red rounded p-5" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-12 mb-3">
+                <h5 class="text-light line-trough line-light">
+                  Biz bilan aloqa
+                </h5>
+              </div>
+              <div class="col-12 mb-3">
+                {% if messages %}
+                <div class="alert alert-success">
+                  {% for message in messages %}
+                  <span>{{ message }}</span>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  name="full_name"
+                  placeholder="Ism Familiya"
+                  maxlength="155"
+                  class="form-control"
+                  required
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Telefon raqam"
+                  maxlength="155"
+                  class="form-control mt-3"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Elektron pochta"
+                  maxlength="155"
+                  class="form-control mt-3 mb-3"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <textarea
+                  class="form-control h-100"
+                  required
+                  name="message"
+                  placeholder="Qoshimcha Xabar"
+                ></textarea>
+              </div>
+              <div class="col-12 text-center mt-5">
+                <button class="btn btn-outline-light">Yuborish</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- end contact -->
+    </section>
+
+    <footer class="bg-dark text-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h1 class="mb-5">
+              <img src="{% static 'img/logo.png' %}" alt="" />
+              Sayohat<span class="text-red">plus</span>
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id
+              auctor augue. Nulla facilisi. Curabitur gravida ligula a est
+              mollis cursus. Suspendisse commodo massa eu aliquam egestas. Fusce
+              consequat convallis lorem, ac tincidunt orci.
+            </p>
+            <div class="social-icons mt-4">
+              <a href="#">
+                <img src="{% static 'img/icons/Facebook.svg' %}" alt="" />
+              </a>
+              <a href="#">
+                <img src="{% static 'img/icons/twitt.svg' %}" alt="" />
+              </a>
+              <a href="#">
+                <img src="{% static 'img/icons/insta.svg' %}" alt="" />
+              </a>
+              <a href="#">
+                <img src="{% static 'img/icons/linkin.svg' %}" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <h1 class="mb-5">Service</h1>
+            <a href="#" class="fs-5 text-light text-decoration-none">Turlar</a>
+            <br />
+            <br />
+            <a href="#" class="fs-5 text-light text-decoration-none"
+              >Biz haqimizda</a
+            >
+            <br />
+            <br />
+            <a href="#" class="fs-5 text-light text-decoration-none"
+              >Galereya</a
+            >
+            <br />
+            <br />
+            <a href="#" class="fs-5 text-light text-decoration-none"
+              >Biz Bilan Aloqa</a
+            >
+            <br />
+          </div>
+          <div class="col-md-4">
+            <h1 class="mb-5">Contact</h1>
+            <p class="fs-5 mb-5">
+              <img
+                src="{% static 'img/icons/location.svg' %}"
+                width="30px"
+                alt=""
+              />
+              Flat 20, Housing State, Syhlet
+            </p>
+            <p class="fs-5 mb-5">
+              <img
+                src="{% static 'img/icons/phone.svg' %}"
+                width="30px"
+                alt=""
+              />
+              +998 90 255 05 15
+            </p>
+            <p class="fs-5 mb-5">
+              <img
+                src="{% static 'img/icons/email.svg' %}"
+                width="30px"
+                alt=""
+              />
+              sayohatplus@gmail.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- bootstrap bundle -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
 </html>
