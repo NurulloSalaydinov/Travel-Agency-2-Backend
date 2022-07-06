@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import City, Gallery, Contact
 from django.contrib import messages
+from django.http import JsonResponse
+from .models import City, Gallery, Contact
 
 
 def home_view(request):
@@ -27,3 +28,9 @@ def home_view(request):
         'galleries': gallery
     }
     return render(request, 'index.html', context)
+
+
+def set_languages(request):
+    lang = request.POST.get('language')
+    # return JsonResponse({'status': 'language'})
+    return redirect(f'/{lang}/')

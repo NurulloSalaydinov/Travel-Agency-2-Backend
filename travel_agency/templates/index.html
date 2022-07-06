@@ -1,11 +1,11 @@
-{% load static %}
+{% load static %} {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sayohat Plus</title>
+    <title>{% trans "Sayohat Plus" %}</title>
     <link
       rel="shortcut icon"
       href="{% static 'img/logo.png' %}"
@@ -24,7 +24,7 @@
         <div class="container-fluid mx-lg-5">
           <a class="navbar-brand fs-4" href="#">
             <img src="{% static 'img/logo.png' %}" alt="" />
-            Sayohat<span class="text-red">plus</span>
+            {% trans "Sayohat" %}<span class="text-red">plus</span>
           </a>
           <button
             class="navbar-toggler"
@@ -44,16 +44,36 @@
           >
             <ul class="navbar-nav fs-5">
               <li class="nav-item">
-                <a class="nav-link" href="#cities">Turlar</a>
+                <a class="nav-link" href="#cities">{% trans "Turlar" %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about">Biz haqimizda</a>
+                <a class="nav-link" href="#about"
+                  >{% trans "Biz haqimizda" %}</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#gallery">Galereya</a>
+                <a class="nav-link" href="#gallery">{% trans "Galereya" %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#contact">Biz bilan aloqa</a>
+                <a class="nav-link" href="#contact"
+                  >{% trans "Biz bilan aloqa" %}</a
+                >
+              </li>
+              <li class="nav-item">
+                <form action="{% url 'main:set_language' %}" method="post">
+                    {% csrf_token %}
+                        <select name="language" onchange="this.parentElement.submit()" class="form-select">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                            <option value="{{ language.code }}"
+                                {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ language.name_local }} ({{ language.code }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                </form>
               </li>
             </ul>
           </div>
@@ -64,15 +84,12 @@
       <div class="container">
         <div class="banner-content">
           <h1>
-            <span class="text-red"> Dunyoni </span>
+            <span class="text-red"> {% trans "Dunyoni" %} </span>
             <br />
-            Qulaylikda Kashf eting
+            {% trans "Qulaylikda Kashf eting" %}
           </h1>
-          <p class="mt-3">
-            Biz sizga qulay va maroqli bolgan sayohat turini taklif qilamiz.
-            <br />
-            Bizda siz uchun maxsus takliflar va yordam berish servislari mavjud.
-            Biz bilan Sayohat qiling !
+          <p class="mt-3 w-75">
+            {% trans "Biz sizga qulay va maroqli bolgan sayohat turini taklif qilamiz. Bizda siz uchun maxsus takliflar va yordam berish servislari mavjud. Biz bilan Sayohat qiling !" %}
           </p>
         </div>
       </div>
@@ -82,9 +99,9 @@
     <section id="cities" class="py-5">
       <!-- container -->
       <div class="container py-5">
-        <h3 class="text-red line-trough">Turlar</h3>
+        <h3 class="text-red line-trough">{% trans "Turlar" %}</h3>
         <p class="mt-3">
-          O'zingiz yoqtirgan shaxringizni tanlang va Sayohat qiling !
+          {% trans "O'zingiz yoqtirgan shaxringizni tanlang va Sayohat qiling !" %}
         </p>
 
         <!-- row -->
@@ -101,7 +118,7 @@
                 <p class="fw-bold">{{ city.title }}</p>
                 <p>{{ city.description }}</p>
                 <a href="#contact" class="text-red text-decoration-none">
-                  Sayohatingizni boshlang &RightArrow;
+                  {% trans "Sayohatingizni boshlang" %} &RightArrow;
                 </a>
               </div>
             </div>
@@ -119,17 +136,19 @@
           <div class="row">
             <div class="col-md-4 text-center mb-3">
               <h1><span class="text-green" data-count="3789">3789</span>+</h1>
-              <h3 class="text-uppercase">Xursand Sayohatchilar</h3>
+              <h3 class="text-uppercase">
+                {% trans "Xursand Sayohatchilar" %}
+              </h3>
             </div>
 
             <div class="col-md-4 text-center mb-3">
               <h1><span class="text-green" data-count="145">145</span>+</h1>
-              <h3 class="text-uppercase">Sayohat maskanlari</h3>
+              <h3 class="text-uppercase">{% trans "Sayohat maskanlari" %}</h3>
             </div>
 
             <div class="col-md-4 text-center mb-3">
               <h1><span class="text-green" data-count="119">119</span>+</h1>
-              <h3 class="text-uppercase">Sayyolar paketi</h3>
+              <h3 class="text-uppercase">{% trans "Sayyolar paketi" %}</h3>
             </div>
           </div>
           <!-- end row -->
@@ -141,20 +160,17 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <h4 class="text-red line-trough">Biz Kimmiz ?</h4>
+              <h4 class="text-red line-trough">{% trans "Biz Kimmiz ?" %}</h4>
 
-              <h1 class="mt-5 pt-5">Biz Sayohatchilarmiz</h1>
+              <h1 class="mt-5 pt-5">{% trans "Biz Sayohatchilarmiz" %}</h1>
 
               <p class="mt-4">
-                Andijon shahrida o’z faoliyatini boshlagan turistik agentligimiz
-                sizlarga Umra Safariga chiqishga, Buxoro va Samarqand
-                shahrilarini ziyorat qilishga, Chet elga Sayohat qilishga
-                ko’maklashadi!
+                {% trans "Andijon shahrida o’z faoliyatini boshlagan turistik agentligimiz sizlarga Umra Safariga chiqishga, Buxoro va Samarqand shahrilarini ziyorat qilishga, Chet elga Sayohat qilishga ko’maklashadi!" %}
               </p>
 
-              <button class="mt-5 btn btn-lg bg-red text-light">
-                Koproq oqish
-              </button>
+              <a href="#contact" class="mt-5 btn btn-lg bg-red text-light">
+                {% trans "Koproq oqish" %}
+              </a>
             </div>
 
             <div class="col-md-6">
@@ -203,7 +219,9 @@
         <div class="container py-5">
           <div class="row">
             <div class="col-md-6">
-              <h3>Biz sizni eng yaxshi sayohat bilan ta'minlaymiz</h3>
+              <h3>
+                {% trans "Biz sizni eng yaxshi sayohat bilan ta'minlaymiz" %}
+              </h3>
 
               <img
                 class="mt-3"
@@ -222,8 +240,12 @@
                     width="50px"
                     alt=""
                   />
-                  <h4 class="mt-3">Sizning fikringiz biz uchun muhim</h4>
-                  <p>Biz har bir mijozimiz talablariga binoan ish tutamiz !</p>
+                  <h4 class="mt-3">
+                    {% trans "Sizning fikringiz biz uchun muhim" %}
+                  </h4>
+                  <p>
+                    {% trans "Biz har bir mijozimiz talablariga binoan ish tutamiz !" %}
+                  </p>
                 </div>
                 <div class="col-md-6 mb-3">
                   <img
@@ -231,8 +253,12 @@
                     width="50px"
                     alt=""
                   />
-                  <h4 class="mt-3">Yaxshi narx kafolatlangan !</h4>
-                  <p>Sayohat qilish endi biz bilan maroqli va qulay narxda</p>
+                  <h4 class="mt-3">
+                    {% trans "Yaxshi narx kafolatlangan !" %}
+                  </h4>
+                  <p>
+                    {% trans "Sayohat qilish endi biz bilan maroqli va qulay narxda" %}
+                  </p>
                 </div>
                 <div class="col-md-6 mb-3">
                   <img
@@ -240,8 +266,10 @@
                     width="50px"
                     alt=""
                   />
-                  <h4 class="mt-3">Yuqori malakali xizmat</h4>
-                  <p>Biz sizga havsizlikni va qulaylikni taklif qilamiz</p>
+                  <h4 class="mt-3">{% trans "Yuqori malakali xizmat" %}</h4>
+                  <p>
+                    {% trans "Biz sizga havsizlikni va qulaylikni taklif qilamiz" %}
+                  </p>
                 </div>
                 <div class="col-md-6 mb-3">
                   <img
@@ -249,8 +277,10 @@
                     width="50px"
                     alt=""
                   />
-                  <h4 class="mt-3">24/7 Yordam Berish</h4>
-                  <p>Biz sizga yordam berishga doim tayyormiz ?</p>
+                  <h4 class="mt-3">{% trans "24/7 Yordam Berish" %}</h4>
+                  <p>
+                    {% trans "Biz sizga yordam berishga doim tayyormiz ?" %}
+                  </p>
                 </div>
               </div>
             </div>
@@ -263,9 +293,9 @@
 
       <div id="gallery" class="container text-center py-5">
         <h1 class="line-trough p-0 text-red">
-          Sayohat albumingizni tayyorlang
+          {% trans "Sayohat albumingizni tayyorlang" %}
         </h1>
-        <p>Galereyangizda saqlang</p>
+        <p>{% trans "Galereyangizda saqlang" %}</p>
 
         <div class="row my-5 gallery-images">
           {% for gallery in galleries %}
@@ -287,11 +317,13 @@
       <!-- client -->
       <div id="client" class="py-5 bg-secondary bg-opacity-10">
         <div class="container">
-          <h4 class="text-red line-trough">Mijozlarimiz nima deydi ?</h4>
+          <h4 class="text-red line-trough">
+            {% trans "Mijozlarimiz nima deydi ?" %}
+          </h4>
 
           <h1 class="mt-5 pt-5">
-            Bizning mijozlarimiz <br />
-            Biz Uchun muhim
+            {% trans "Bizning mijozlarimiz" %} <br />
+            {% trans "Biz Uchun muhim" %}
           </h1>
 
           <!-- row -->
@@ -414,7 +446,7 @@
             <div class="row">
               <div class="col-12 mb-3">
                 <h5 class="text-light line-trough line-light">
-                  Biz bilan aloqa
+                  {% trans "Biz bilan aloqa" %}
                 </h5>
               </div>
               <div class="col-12 mb-3">
@@ -430,7 +462,7 @@
                 <input
                   type="text"
                   name="full_name"
-                  placeholder="Ism Familiya"
+                  placeholder="{% trans 'Ism Familiya' %}"
                   maxlength="155"
                   class="form-control"
                   required
@@ -438,7 +470,7 @@
                 <input
                   type="text"
                   name="phone"
-                  placeholder="Telefon raqam"
+                  placeholder="{% trans 'Telefon raqam' %}"
                   maxlength="155"
                   class="form-control mt-3"
                   required
@@ -446,7 +478,7 @@
                 <input
                   type="email"
                   name="email"
-                  placeholder="Elektron pochta"
+                  placeholder="{% trans 'Elektron pochta' %}"
                   maxlength="155"
                   class="form-control mt-3 mb-3"
                   required
@@ -457,11 +489,13 @@
                   class="form-control h-100"
                   required
                   name="message"
-                  placeholder="Qoshimcha Xabar"
+                  placeholder="{% trans 'Qoshimcha Xabar' %}"
                 ></textarea>
               </div>
               <div class="col-12 text-center mt-5">
-                <button class="btn btn-outline-light">Yuborish</button>
+                <button class="btn btn-outline-light">
+                  {% trans 'Yuborish' %}
+                </button>
               </div>
             </div>
           </form>
@@ -479,10 +513,7 @@
               Sayohat<span class="text-red">plus</span>
             </h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id
-              auctor augue. Nulla facilisi. Curabitur gravida ligula a est
-              mollis cursus. Suspendisse commodo massa eu aliquam egestas. Fusce
-              consequat convallis lorem, ac tincidunt orci.
+              {% trans "Andijon shahrida o’z faoliyatini boshlagan turistik agentligimiz sizlarga Umra Safariga chiqishga, Buxoro va Samarqand shahrilarini ziyorat qilishga, Chet elga Sayohat qilishga ko’maklashadi!" %}
             </p>
             <div class="social-icons mt-4">
               <a href="#">
@@ -500,31 +531,33 @@
             </div>
           </div>
           <div class="col-md-4 text-center">
-            <h1 class="mb-5">Service</h1>
-            <a href="#" class="fs-5 text-light text-decoration-none">Turlar</a>
-            <br />
-            <br />
+            <h1 class="mb-5">{% trans "Sevislar" %}</h1>
             <a href="#" class="fs-5 text-light text-decoration-none"
-              >Biz haqimizda</a
+              >{% trans 'Turlar' %}</a
+            >
+            <br />
+            <br />
+            <a href="#" class="fs-5 text-light text-decoration-none">
+              {% trans "Biz haqimizda" %}</a
             >
             <br />
             <br />
             <a href="#" class="fs-5 text-light text-decoration-none"
-              >Galereya</a
+              >{% trans "Galereya" %}</a
             >
             <br />
             <br />
             <a href="#" class="fs-5 text-light text-decoration-none"
-              >Biz Bilan Aloqa</a
+              >{% trans "Biz Bilan Aloqa" %}</a
             >
             <br />
           </div>
           <div class="col-md-4">
-            <h1 class="mb-5">Contact</h1>
+            <h1 class="mb-5">{% trans "Contact" %}</h1>
             <p class="fs-5 mb-5">
               <img
                 src="{% static 'img/icons/location.svg' %}"
-                width="30px"
+                width="25px"
                 alt=""
               />
               Flat 20, Housing State, Syhlet
@@ -532,7 +565,7 @@
             <p class="fs-5 mb-5">
               <img
                 src="{% static 'img/icons/phone.svg' %}"
-                width="30px"
+                width="25px"
                 alt=""
               />
               +998 90 255 05 15
@@ -540,7 +573,7 @@
             <p class="fs-5 mb-5">
               <img
                 src="{% static 'img/icons/email.svg' %}"
-                width="30px"
+                width="25px"
                 alt=""
               />
               sayohatplus@gmail.com

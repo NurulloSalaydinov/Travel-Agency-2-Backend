@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-06 17:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\templates\index.html:8
+msgid "Sayohat Plus"
+msgstr "Путешествие Плюс"
+
+#: .\templates\index.html:27
+msgid "Sayohat"
+msgstr "Путешествовать"
+
+#: .\templates\index.html:47 .\templates\index.html:102
+#: .\templates\index.html:536
+msgid "Turlar"
+msgstr "Типы"
+
+#: .\templates\index.html:51 .\templates\index.html:541
+msgid "Biz haqimizda"
+msgstr "насчет нас"
+
+#: .\templates\index.html:55 .\templates\index.html:546
+msgid "Galereya"
+msgstr "Галерея"
+
+#: .\templates\index.html:59 .\templates\index.html:449
+msgid "Biz bilan aloqa"
+msgstr "Свяжитесь с нами"
+
+#: .\templates\index.html:87
+msgid "Dunyoni"
+msgstr "Исследуйте"
+
+#: .\templates\index.html:89
+msgid "Qulaylikda Kashf eting"
+msgstr "мир с комфортом"
+
+#: .\templates\index.html:92
+msgid ""
+"Biz sizga qulay va maroqli bolgan sayohat turini taklif qilamiz. Bizda siz "
+"uchun maxsus takliflar va yordam berish servislari mavjud. Biz bilan Sayohat "
+"qiling !"
+msgstr ""
+"Мы предлагаем вам комфортный и приятный тур. У нас есть специальные предложения и услуги" "поддержки для вас. Путешествуйте с нами!"
+
+#: .\templates\index.html:104
+msgid "O'zingiz yoqtirgan shaxringizni tanlang va Sayohat qiling !"
+msgstr "Выбирайте свой любимый город и путешествуйте!"
+
+#: .\templates\index.html:121
+msgid "Sayohatingizni boshlang"
+msgstr "Начните свое путешествие"
+
+#: .\templates\index.html:140
+msgid "Xursand Sayohatchilar"
+msgstr "Счастливые путешественники"
+
+#: .\templates\index.html:146
+msgid "Sayohat maskanlari"
+msgstr "Направления путешествий"
+
+#: .\templates\index.html:151
+msgid "Sayyolar paketi"
+msgstr "ПАКЕТ ТУРОВ"
+
+#: .\templates\index.html:163
+msgid "Biz Kimmiz ?"
+msgstr "Кто мы?"
+
+#: .\templates\index.html:165
+msgid "Biz Sayohatchilarmiz"
+msgstr "Мы путешественники"
+
+#: .\templates\index.html:168 .\templates\index.html:516
+msgid ""
+"Andijon shahrida o’z faoliyatini boshlagan turistik agentligimiz sizlarga "
+"Umra Safariga chiqishga, Buxoro va Samarqand shahrilarini ziyorat qilishga, "
+"Chet elga Sayohat qilishga ko’maklashadi!"
+msgstr ""
+"Наше туристическое агентство, начавшее свою деятельность в Андижане, поможет Вам" "совершить умру, посетить города Бухару и Самарканд, выехать за границу!"
+
+#: .\templates\index.html:172
+msgid "Koproq oqish"
+msgstr "Контакт"
+
+#: .\templates\index.html:223
+msgid "Biz sizni eng yaxshi sayohat bilan ta'minlaymiz"
+msgstr "Мы предлагаем вам лучший опыт путешествий"
+
+#: .\templates\index.html:244
+msgid "Sizning fikringiz biz uchun muhim"
+msgstr "Ваше мнение важно для нас"
+
+#: .\templates\index.html:247
+msgid "Biz har bir mijozimiz talablariga binoan ish tutamiz !"
+msgstr "Мы работаем в соответствии с требованиями каждого нашего клиента!"
+
+#: .\templates\index.html:257
+msgid "Yaxshi narx kafolatlangan !"
+msgstr "Хорошая цена гарантирована!"
+
+#: .\templates\index.html:260
+msgid "Sayohat qilish endi biz bilan maroqli va qulay narxda"
+msgstr "Путешествовать с нами теперь весело и доступно"
+
+#: .\templates\index.html:269
+msgid "Yuqori malakali xizmat"
+msgstr "Высококвалифицированный сервис"
+
+#: .\templates\index.html:271
+msgid "Biz sizga havsizlikni va qulaylikni taklif qilamiz"
+msgstr "Мы предлагаем вам покой и комфорт"
+
+#: .\templates\index.html:280
+msgid "24/7 Yordam Berish"
+msgstr "Круглосуточная поддержка"
+
+#: .\templates\index.html:282
+msgid "Biz sizga yordam berishga doim tayyormiz ?"
+msgstr "Мы всегда готовы помочь вам"
+
+#: .\templates\index.html:296
+msgid "Sayohat albumingizni tayyorlang"
+msgstr "Подготовьте свой дорожный альбом"
+
+#: .\templates\index.html:298
+msgid "Galereyangizda saqlang"
+msgstr "Сохранить в свою галерею"
+
+#: .\templates\index.html:321
+msgid "Mijozlarimiz nima deydi ?"
+msgstr "Что говорят наши клиенты?"
+
+#: .\templates\index.html:325
+msgid "Bizning mijozlarimiz"
+msgstr "Наши клиенты"
+
+#: .\templates\index.html:326
+msgid "Biz Uchun muhim"
+msgstr "важны для нас"
+
+#: .\templates\index.html:465
+msgid "Ism Familiya"
+msgstr "Имя Фамилия"
+
+#: .\templates\index.html:473
+msgid "Telefon raqam"
+msgstr "Номер телефона"
+
+#: .\templates\index.html:481
+msgid "Elektron pochta"
+msgstr "Электрон почта"
+
+#: .\templates\index.html:492
+msgid "Qoshimcha Xabar"
+msgstr "Дополнительное сообщение"
+
+#: .\templates\index.html:497
+msgid "Yuborish"
+msgstr "Отправка"
+
+#: .\templates\index.html:534
+msgid "Sevislar"
+msgstr "Услуги"
+
+#: .\templates\index.html:551
+msgid "Biz Bilan Aloqa"
+msgstr "Свяжитесь с нами"
+
+#: .\templates\index.html:556
+msgid "Contact"
+msgstr "Контакт"
+
+#: .\travel_agency\settings.py:126
+msgid "English"
+msgstr ""
+
+#: .\travel_agency\settings.py:127
+msgid "Russian"
+msgstr ""
+
+#: .\travel_agency\settings.py:128
+msgid "Uzbek"
+msgstr ""
